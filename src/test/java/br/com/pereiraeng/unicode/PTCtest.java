@@ -4,12 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-class PTCtest {
+public class PTCtest {
 
 	@Test
-	void testPTC() {
+	public void testPTC() {
 		String[] symbols = PTC.getPTC();
 		assertEquals(symbols.length, 21);
 	}
-
 }

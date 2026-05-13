@@ -6,10 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-class GreekTest {
+public class GreekTest {
 
 	@Test
-	void testGreekLetterName() {
+	public void testGreekLetterName() {
 		char c = (char) 0x0391;
 		String name = Greek.greek(c);
 		assertEquals("Alpha", name);
@@ -24,7 +24,7 @@ class GreekTest {
 	}
 
 	@Test
-	void testGreekDetect() {
+	public void testGreekDetect() {
 		assertTrue(Greek.isGreek((char) 0x0391));
 		assertTrue(Greek.isGreek((char) 0x03B1));
 		assertFalse(Greek.isGreek((char) 0x0050));
