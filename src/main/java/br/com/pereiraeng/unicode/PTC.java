@@ -1,8 +1,7 @@
 package br.com.pereiraeng.unicode;
 
-import java.io.InputStream;
-
-import br.com.pereiraeng.io.IOutils;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 
 /**
  * <strong>P</strong>honetic <strong>T</strong>ranscription
@@ -23,7 +22,14 @@ public class PTC {
 	 *         <code>char</code>.
 	 */
 	public static String[] getPTC() {
-		InputStream stream = PTC.class.getResourceAsStream("/tf");
-		return (String[]) IOutils.loadObjects(stream);
+		String[] out = null;
+		try {
+			ObjectInputStream stream = new ObjectInputStream(PTC.class.getResourceAsStream("/tf"));
+			out = (String[]) stream.readObject();
+			stream.close();
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return out;
 	}
 }
